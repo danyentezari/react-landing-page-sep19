@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext }  from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
+import Blog from './Blog';
 import Contact from './Contact'
 import NavBar from './NavBar'
 import AppContext from './AppContext.js'
@@ -83,7 +84,8 @@ const Main = () => {
             <BrowserRouter>
                 <Switch>
                     <LayoutRoute path="/" exact component={Home} />
-                    <LayoutRoute path="/about" component={About} />
+                    <LayoutRoute isExact path="/blog/:page" component={Blog} />
+                    <LayoutRoute path="/about/" component={About} />
                     <PrivateRoute path="/contact" component={Contact} />
                 </Switch>
             </BrowserRouter>
